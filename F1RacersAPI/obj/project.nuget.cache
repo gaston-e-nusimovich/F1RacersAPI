@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0mtrzpaoxE1W+wAZgxKlElPY6JuTVfqqCP5JtGUngEUV8kSCCNhfk46ibajEOMyMVSeN2G+aLaFkv2brFP9n0Q==",
+  "dgSpecHash": "i2/BlVMUh10vyDmOcwdW4n3KtKe3/QgqrhO5C6f4kHjtNlKUI+tdttm/ZjRv0L+XkZYXr2NOz0PdjoJANuiP8A==",
   "success": true,
-  "projectFilePath": "C:\\spikes\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
+  "projectFilePath": "C:\\Users\\Gaston_Nusimovich\\source\\repos\\LocalRacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gaston_Nusimovich\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\Gaston_Nusimovich\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
