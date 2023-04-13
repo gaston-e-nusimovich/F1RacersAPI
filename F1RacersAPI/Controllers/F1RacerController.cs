@@ -64,6 +64,23 @@ namespace F1RacersAPI.Controllers
 
         }
 
+        [HttpGet("country")]
+
+        public async Task<ActionResult<List<Racer>>> GetRacersByCountry(string country)
+        {
+
+            var racersByCountry = F1RacerController.theRacers.Where(r => r.Country == country).OrderBy(r => r.Lastname).ThenBy(r => r.Firstname).ToList();
+
+            if (racersByCountry.Count == 0)
+            {
+
+                return NotFound($"No racers from '{country}' were found.");
+
+            }
+
+            return Ok(racersByCountry);
+        }
+
         [HttpPost]
 
         public async Task<ActionResult<Racer>> AddRacer([FromBody] Racer racer)
