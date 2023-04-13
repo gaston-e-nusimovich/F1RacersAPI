@@ -7,23 +7,7 @@ namespace F1RacersAPI.Models
    [Serializable]
    public class Racer : IComparable<Racer>, IFormattable
    {
-      //public Racer(string firstname, string lastname, string country, int starts, int wins)
-      //{
-      //   this.firstname = firstname;
-      //   this.lastname = lastname;
-      //   this.country = country;
-      //   this.starts = starts;
-      //   this.wins = wins;
-      //   //this.titles.AddRange(titles);
-      //}
-
-        //public Racer(string firstname, string lastname, string country, int starts, int wins)
-
-        //{
-
-        //}
-
-
+    
         public Racer(int id, string firstname, string lastname, string country, int starts, int wins)
         {
 
@@ -104,10 +88,7 @@ namespace F1RacersAPI.Models
         #endregion
 
 
-        //public string ToString(string format)
-        //{
-        //    return ToString(format, null);
-        //}
+ 
 
         #region IFormattable Members
 
@@ -149,12 +130,7 @@ namespace F1RacersAPI.Models
 
       #endregion
 
-      //private readonly List<int> titles = new List<int>();
-
-      //public IList<int> Titles
-      //{
-      //   get { return titles; }
-      //}
+ 
 	
    }
 }

@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\spikes\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Gaston_Nusimovich\\source\\repos\\LocalRacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
       "projectName": "F1RacersAPI",
-      "projectPath": "C:\\spikes\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
+      "projectPath": "C:\\Users\\Gaston_Nusimovich\\source\\repos\\LocalRacersAPI\\F1RacersAPI\\F1RacersAPI.csproj",
       "packagesPath": "C:\\Users\\Gaston_Nusimovich\\.nuget\\packages\\",
-      "outputPath": "C:\\spikes\\F1RacersAPI\\F1RacersAPI\\F1RacersAPI\\obj\\",
+      "outputPath": "C:\\Users\\Gaston_Nusimovich\\source\\repos\\LocalRacersAPI\\F1RacersAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gaston_Nusimovich\\AppData\\Roaming\\NuGet\\NuGet.Config",
