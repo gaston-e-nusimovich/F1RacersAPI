@@ -8,10 +8,10 @@ namespace F1RacersAPI.Models
    public class Racer : IComparable<Racer>, IFormattable
    {
     
-        public Racer(int id, string firstname, string lastname, string country, int starts, int wins)
+        public Racer(long id, string firstname, string lastname, string country, int starts, int wins)
         {
 
-            this.id = id;
+            this.Id = id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.country = country;
@@ -24,13 +24,9 @@ namespace F1RacersAPI.Models
 
       }
 
-      private int id;
+      
 
-      public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public long Id { get; set; }
 
         private string firstname = String.Empty;
 

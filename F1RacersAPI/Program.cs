@@ -1,4 +1,8 @@
 
+using F1RacersAPI.Data;
+using F1RacersAPI.Services.F1RacersService;
+using Microsoft.EntityFrameworkCore;
+
 namespace F1RacersAPI
 {
     public class Program
@@ -9,7 +13,10 @@ namespace F1RacersAPI
 
             // Add services to the container.
 
+            builder.Services.AddScoped<IF1RacersService, F1RacersService>();
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<F1RacersDataContext>(options => 
+                                        options.UseSqlServer("Server=DESKTOP-9225AUG\\SQLEXPRESS;Database=F1RacersDb; Trusted_Connection=True; TrustServerCertificate=True;"));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

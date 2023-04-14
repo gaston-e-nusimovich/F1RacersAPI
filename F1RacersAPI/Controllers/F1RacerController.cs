@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using F1RacersAPI.Models;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using F1RacersAPI.Services.F1RacersService;
 
 namespace F1RacersAPI.Controllers
 {
@@ -9,9 +10,16 @@ namespace F1RacersAPI.Controllers
     [ApiController]
     public class F1RacerController : ControllerBase
     {
-        private static List<Racer> theRacers = RacersFactory();
+        //private static List<Racer> theRacers = RacersFactory();
 
+        private readonly IF1RacersService _racersService;
 
+        public F1RacerController(IF1RacersService service)
+        {
+            _racersService = service; 
+        }
+
+        /*
         private static List<Racer> RacersFactory()
         {
             List<Racer> racers = new List<Racer>();
@@ -48,30 +56,34 @@ namespace F1RacersAPI.Controllers
 
             return racers;
         }
-
-        public F1RacerController() {
-
+        */
 
 
-
-        }
         [HttpGet]
 
         public async Task<ActionResult<List<Racer>>> GetAllF1Racers()
         {
 
-            return Ok(F1RacerController.theRacers);
+            var racers = await _racersService.GetAllF1Racers();
+
+            if (racers == null)
+            {
+
+                return NotFound("Racers not found!");
+            }
+
+            return Ok(racers);
 
         }
 
-        [HttpGet("country")]
+        [HttpGet("ByCountry")]
 
         public async Task<ActionResult<List<Racer>>> GetRacersByCountry(string country)
         {
 
-            var racersByCountry = F1RacerController.theRacers.Where(r => r.Country == country).OrderBy(r => r.Lastname).ThenBy(r => r.Firstname).ToList();
-
-            if (racersByCountry.Count == 0)
+            var racersByCountry = await _racersService.GetRacersByCountry(country);
+                
+            if (racersByCountry is null)
             {
 
                 return NotFound($"No racers from '{country}' were found.");
@@ -86,27 +98,33 @@ namespace F1RacersAPI.Controllers
         public async Task<ActionResult<Racer>> AddRacer([FromBody] Racer racer)
         {
 
-            F1RacerController.theRacers.Add(racer);
+            var racers = await _racersService.AddRacer(racer);
 
-            return Ok(F1RacerController.theRacers);
+            if (racers == null)
+            {
+
+                return NotFound("Racers not found!");
+            }
+
+            return Ok(racers);
 
 
         }
 
         [HttpGet("id")]
 
-        public async Task<ActionResult<Racer>> GetRacer(int id)
+        public async Task<ActionResult<Racer>> GetRacer(long id)
         {
 
-            var result = F1RacerController.theRacers.Find(r => r.Id == id);
+            var racer = await _racersService.GetRacer(id);
 
-            if (result == null)
+            if (racer == null)
             {
 
                 return NotFound("Racer not found!");
             }
 
-            return Ok(result);
+            return Ok(racer);
 
 
         }
@@ -117,40 +135,42 @@ namespace F1RacersAPI.Controllers
         public async Task<ActionResult<List<Racer>>> UpdateRacer([FromBody] Racer racer)
         {
 
-            var result = F1RacerController.theRacers.Find(r => r.Id == racer.Id);
+            Task<bool> retVal;
 
-            if (result == null)
-            {
-
-                return BadRequest("Racer not found!");
-
-            }
-
-            result.Firstname = racer.Firstname;
-            result.Lastname = racer.Lastname;
-            result.Starts = racer.Starts;
-            result.Wins = racer.Wins;
-            result.Country = racer.Country;
+            retVal = _racersService.UpdateRacer(racer);
 
 
-            return Ok(F1RacerController.theRacers);
-        }
 
-        [HttpDelete("id")]
-
-        public async Task<ActionResult<List<Racer>>> DeleteRacer(int id)
-        {
-            var result = F1RacerController.theRacers.Find(r => r.Id == id);
-
-            if (result == null)
+            if (!retVal.Result)
             {
 
                 return NotFound("Racer not found!");
             }
 
-            F1RacerController.theRacers.Remove(result);
+            var racers = await _racersService.GetAllF1Racers();
 
-            return Ok(F1RacerController.theRacers);
+            return Ok(racers);
+        }
+
+        [HttpDelete("id")]
+
+        public async Task<ActionResult<List<Racer>>> DeleteRacer(long id)
+        {
+            Task<bool> retVal;
+
+            retVal =   _racersService.DeleteRacer(id);
+
+            
+
+            if (!retVal.Result)
+            {
+
+                return NotFound("Racer not found!");
+            }
+
+            var racers = await _racersService.GetAllF1Racers();
+
+            return Ok(racers);
 
         }
     }
