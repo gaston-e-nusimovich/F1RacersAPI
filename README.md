@@ -7,7 +7,7 @@ This application uses EF Core migrations to set up and apply changes to app DB; 
 
 
 
-The app was developed incrementally, following a simple agile slicing technique inspired by Alistair Cockburn's Elephant Carpaccio. Each increment of the slices has been committed to a branch (GEN-DEV), and then merged into main, in sequence. If interested on the slicing technique, just check out each commit at GEN-DEV.
+The app was developed incrementally, following a simple agile slicing technique inspired by Alistair Cockburn's [Elephant Carpaccio](https://alistair.cockburn.us/wp-content/uploads/2018/02/Elephant-Carpaccio-exercise-instructions.pdf). Each increment of the slices has been committed to a branch (GEN-DEV), and then merged into main, in sequence. If interested on the slicing technique, just check out each commit at GEN-DEV.
 
 
 
