@@ -13,6 +13,8 @@ The "Hello, World" step in any slicing technique when using solution templates l
 
 From that point on, keep on adding small slices of incremental code that both compile Ok and run Ok. Choose the slices wisely and use tools to include missing layers, like for instance, use stubs or mocks for data at the first slice; then, substitute data stub or data mock with proper data access layer using your choice of ORM, then add service to hide data access layer behind it. Proper use of Dependency Injection is a true gift to any slicing technique.
 
+The basis of any agile slicing technique is to evolve the code in small and rapid increments, from easy and safe but still not quite the complete requirements, to complex, complete and safe. As you keep on practicing  any slicing technique, you get more adept and fluent with it!
+
 
 
 
