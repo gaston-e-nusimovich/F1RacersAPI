@@ -3,4 +3,10 @@ Simple example of ASP.NET Core Web API; Clean Architecture (Ports and Adapters);
 
 Connection string is declared  and assigned in Connection String section (DefaultConnection key) at appsettings.json configuration file.
 
+This application uses EF Core migrations to set up and apply changes to app DB; before running the app for the first time, app DB must be created by dev (then, adjust connection string in appsettings.json to proper value for app DB created), then EF migration must be run in order to create DB schema in app DB. Once the app DB and its DB schema are created, the application can be executed.
+
+
+
+
+
 
