@@ -12,3 +12,4 @@ namespace F1RacersAPI.Data
         public DbSet<Racer> F1Racers { get; set; }
     }
 }
+
